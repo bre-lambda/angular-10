@@ -1,0 +1,50 @@
+<form [formGroup]="registrationForm">
+  <label>First Name:</label>
+  <input type="text" formControlName="firstName" required>
+
+  <div
+    *ngIf="registrationForm.get('firstName').invalid && (registrationForm.get('firstName').dirty || registrationForm.get('firstName').touched)"
+    class="alert alert-danger">
+
+    <div style="color: red;">
+      Name is required.
+    </div>
+
+  </div>
+  <label>Last Name:</label>
+  <input type="text" formControlName="lastName">
+  <label>Email:</label>
+  <input type="email" formControlName="email" email="true">
+
+  <label>Phone Number:</label>
+  <input type="text" formControlName="phoneNumber">
+
+  <label>Gender:</label>
+  <select formControlName="gender">
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+
+  </select>
+  <div formGroupName="address">
+    <h3>Address</h3>
+
+    <label>Country:</label>
+    <input type="text" formControlName="country">
+
+    <label>City:</label>
+    <input type="text" formControlName="city">
+    <label>Zip Code:</label>
+    <input type="text" formControlName="zipCode">
+  </div>
+
+  <div><button type="submit" (click)="isEmpty===false?updateStudent():addNewStudent()"
+      [disabled]="!registrationForm.valid" class="add-btn"><strong>{{isEmpty===false? "Update Student":"Save
+        Student"}}</strong> </button>
+
+  </div>
+  <!-- <div *ngIf="isEmpty()">
+    <button type="submit" [disabled]="!registrationForm.valid" class="add-btn" (click)="addNewStudent()"><strong>Add
+        Student</strong> </button>
+  </div> -->
+
+</form>

@@ -1,0 +1,43 @@
+<div class="top-elements">
+  <button class="btn default" (click)="toggleView()"><strong *ngIf="showList; else elseBlock">Add
+      Student</strong></button>
+  <ng-template #elseBlock><strong>Back to Student List</strong></ng-template>
+  <div class="searchDiv" *ngIf="showList">
+    <input type="search" placeholder="Search Student..." [formControl]="keyword" id="myInput" (keyup)="filterStudent()">
+    <button type="submit" (click)="searchStudent()">Search</button>
+  </div>
+</div>
+
+<div *ngIf="showList">
+  <table id="studentTable">
+    <caption>
+      <h1>Students_managment_system</h1>
+    </caption>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Gender</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of (students|async)">
+        <td>{{student.firstName}} {{student.lastName}}</td>
+        <td>{{student.email}} </td>
+        <td>{{student.phoneNumber}} </td>
+        <td>{{student.gender | titlecase}} </td>
+        <td> <button class="btn danger" (click)="confirmBox(student.id)">Delete
+          </button> | &nbsp;
+          <button class="btn default" (click)="openDetail(student)">Edit
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="!showList">
+  <app-add-student (addStudentEvent)="addStudent($event)" (updateStudentEvent)="updateStudent($event)"
+    [selectedStudent]="selectedItem"></app-add-student>
+</div>

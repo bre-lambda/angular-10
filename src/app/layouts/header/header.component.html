@@ -1,0 +1,12 @@
+<nav class="navbar">
+  <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+  <a routerLink="/students" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Students</a>
+  <a routerLink="/about" routerLinkActive="active" exact="true">About</a>
+  <a routerLink="/contact" routerLinkActive="active" exact="true">Contact</a>
+  <div class="pull-right">
+    <a (click)="logout()" class="logout-btn">Logout</a>
+  </div>
+</nav>
+<main class="main">
+  <router-outlet></router-outlet>
+</main>

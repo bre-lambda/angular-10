@@ -1,0 +1,97 @@
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.btn {
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+success {
+  background-color: #04aa6d;
+} /* Green */
+.success:hover {
+  background-color: #46a049;
+}
+
+.info {
+  background-color: #2196f3;
+} /* Blue */
+.info:hover {
+  background: #0b7dda;
+}
+
+.warning {
+  background-color: #ff9800;
+} /* Orange */
+.warning:hover {
+  background: #e68a00;
+}
+
+.danger {
+  background-color: #f44336;
+} /* Red */
+.danger:hover {
+  background: #da190b;
+}
+
+.default {
+  background-color: #e7e7e7;
+  color: black;
+} /* Gray */
+.default:hover {
+  background: #ddd;
+}
+.searchDiv input[type="search"] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  background: #f1f1f1;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+.searchDiv button {
+  float: left;
+  padding: 10px;
+  background: #2196f3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+.searchDiv.button:hover {
+  background: #0b7dda;
+}
+
+.searchDiv::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.top-elements {
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.trow:hover {
+  background-color: #808080;
+  cursor: pointer;
+}
